@@ -6,7 +6,26 @@ on:
     branches: [master]
 
 jobs:
-  build:
+
+  build-win:
+    runs-on: windows-latest
+    steps:
+    - name: check repository
+      uses: actions/checkout@v2
+      
+    - name: install dependencies
+      run: |
+        choco install cmake
+        choco install make
+      
+    - name: build and test
+      run: |
+        cmake CMakeLists.txt
+        make
+        ./Release/sobel
+
+        
+  build-ubu:
     runs-on: ubuntu-latest
     steps:
     - name: check repository
