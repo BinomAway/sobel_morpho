@@ -14,7 +14,7 @@ jobs:
       
     - name: build and test
       run: |
-        apt install libsdl2-dev libsdl2-ttf-dev -y
+        sudo apt install libsdl2-dev libsdl2-ttf-dev -y
         cmake CMakeLists.txt
         make
         ./Release/sobel
